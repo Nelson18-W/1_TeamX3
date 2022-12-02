@@ -104,25 +104,28 @@ function adjustFontSize(size) //Changes the font size based on what the user sel
         document.getElementById("textChange") = "xx-large";
     }
 }
+
 theScore = getElementById("score").innerHTML = ""; //Keep the score as a global variable. Will move this at the top soon.
+
 function guess(num) //The parameter of the level will be from the html. Name will be from the function enterName()
 {
-    /* May also add something that switches to new html pages after the level is selected*/
-    document.getElementById("heading").innerHTML = "The level you choose requires you to guess a number between 0 and " + num;
     var correctNum = randNum(num); //The number that the user has to try to guess
     var guessAttempts = 0;
+    var guessedRight = false;
     while (guessAttempts <= num && guessedRight == false)
     {
         var guess = parseInt(prompt("Please guess a number: ", ""));
         guessAttempts = guessAttempts + 1;
         if(guess == correctNum)
         {
-            alert("guess is correct!");
+            document.getElementById("boxResult").innerHTML = "Your guess is correct!";
+            alert("Your guess is correct!"); //will remove this
             guessedRight == true;
         }
         else
         {
-            alert("wrong");
+            document.getElementById("boxResult").innerHTML = "Your guess is wrong!"
+            alert("Your guess is wrong!"); //will remove this
         }
     }
     // if(guessedRight == false)
@@ -131,7 +134,7 @@ function guess(num) //The parameter of the level will be from the html. Name wil
     //     theScore = theScore + name + ": " + (num - guessAttempts); //May change the scoring system 
     // }
 }
-function randNum(num)
+function randNum(upTo) //Returns a random number from [1, upto]
 {
-    return Math.floor(Math.random() * num) + 1;
+    return Math.floor(Math.random() * upTo) + 1;
 }
