@@ -1,17 +1,12 @@
+// Navigating Between html files:
 function instructions() //The instructions will show
 {
-    document.getElementById("instructions").src="images/instructions.jpg";
+    document.getElementById("instructions").href = "instructions.html";
 }
 
-function exitInstructions() //Hide instructions
+function exitInstructions() //Go back to main page instructions
 {
-    document.getElementById("instructions").style.display="none";
-}
-
-// Navigating Between html files:
-function easy()
-{
-    document.getElementById("easyLvl").href = "easy.html";
+    document.getElementById("instructions").href ="project.html";
 }
 
 function easy()
@@ -19,10 +14,45 @@ function easy()
     document.getElementById("easyLvl").href = "easy.html";
 }
 
-function easy()
+function medium()
 {
-    document.getElementById("easyLvl").href = "easy.html";
+    document.getElementById("mediumLvl").href = "medium.html";
 }
+
+function hard()
+{
+    document.getElementById("hardLvl").href = "hard.html";
+}
+
+function exit()
+{
+    //Changes the html page to the "Game ended" page.
+
+    document.getElementById("ending").href = "endPage.html";
+}
+
+function refresh() //Refeshes everything and goes back to main page
+{
+    score = 0;
+    document.getElementById("ending").href = "project.html";
+}
+
+function retry(level)
+{
+    if(level == 1)
+    {
+        document.getElementById("easyRetry").href = "easy.html";
+    }
+    else if(level == 2)
+    {
+        document.getElementById("mediumRetry").href = "medium.html";
+    }
+    else if(level == 3)
+    {
+        document.getElementById("hardRetry").href = "hard.html";
+    }
+}
+//End of navigation codes
 
 function enterName()
 {
@@ -123,14 +153,4 @@ function randNum(num)
     return Math.floor(Math.random() * num) + 1;
 }
 
-function exit()
-{
-    //Changes the html page to the "Game ended" page.
 
-    document.getElementById("ending").innerHTML = "game has ended, thanks for playing <br>" + theScore; //Assuming texts are alligned in the middle
-}
-
-function refresh()
-{
-    //changes the html page back to the beginning page for the user to enter a new name and play the game again
-}
