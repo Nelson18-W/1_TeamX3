@@ -31,9 +31,26 @@ function exit()
     document.getElementById("ending").href = "endPage.html";
 }
 
-function refresh()
+function refresh() //Refeshes everything and goes back to main page
 {
+    score = 0;
     document.getElementById("ending").href = "project.html";
+}
+
+function retry(level)
+{
+    if(level == 1)
+    {
+        document.getElementById("easyRetry").href = "easy.html";
+    }
+    else if(level == 2)
+    {
+        document.getElementById("mediumRetry").href = "medium.html";
+    }
+    else if(level == 3)
+    {
+        document.getElementById("hardRetry").href = "hard.html";
+    }
 }
 //End of navigation codes
 
