@@ -14,14 +14,14 @@ function easy()
     document.getElementById("easyLvl").href = "easy.html";
 }
 
-function easy()
+function medium()
 {
-    document.getElementById("easyLvl").href = "easy.html";
+    document.getElementById("mediumLvl").href = "medium.html";
 }
 
-function easy()
+function hard()
 {
-    document.getElementById("easyLvl").href = "easy.html";
+    document.getElementById("hardLvl").href = "hard.html";
 }
 
 function enterName()
