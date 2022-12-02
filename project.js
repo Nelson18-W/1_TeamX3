@@ -14,6 +14,16 @@ function easy()
     document.getElementById("easyLvl").href = "easy.html";
 }
 
+function easy()
+{
+    document.getElementById("easyLvl").href = "easy.html";
+}
+
+function easy()
+{
+    document.getElementById("easyLvl").href = "easy.html";
+}
+
 function enterName()
 {
     //Maybe something like an array for names to be kept track of in the scoreboard.
