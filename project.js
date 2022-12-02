@@ -8,6 +8,12 @@ function exitInstructions() //Hide instructions
     document.getElementById("instructions").style.display="none";
 }
 
+// Navigating Between html files:
+function easy()
+{
+    document.getElementById("easyLvl").href = "easy.html";
+}
+
 function enterName()
 {
     //Maybe something like an array for names to be kept track of in the scoreboard.
@@ -68,7 +74,7 @@ function adjustFontSize(size) //Changes the font size based on what the user sel
 
 theScore = getElementById("score").innerHTML = ""; //Keep the score as a global variable. Will move this at the top soon.
 
-function levelDifficulty(num, name) //The parameter of the level will be from the html. Name will be from the function enterName()
+function guess(num) //The parameter of the level will be from the html. Name will be from the function enterName()
 {
 
     /* May also add something that switches to new html pages after the level is selected*/
@@ -89,13 +95,17 @@ function levelDifficulty(num, name) //The parameter of the level will be from th
 
             guessedRight == true;
         }
+        else
+        {
+            alert("wrong");
+        }
     }
 
-    if(guessedRight == false)
+    // if(guessedRight == false)
     
-    {
-        theScore = theScore + name + ": " + (num - guessAttempts); //May change the scoring system 
-    }
+    // {
+    //     theScore = theScore + name + ": " + (num - guessAttempts); //May change the scoring system 
+    // }
 }
 
 function randNum(num)
