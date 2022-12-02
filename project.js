@@ -1,11 +1,11 @@
 function instructions() //The instructions will show
 {
-    document.getElementById("instructions").src="images/instructions.jpg";
+    document.getElementById("instructions").href = "instructions.html";
 }
 
-function exitInstructions() //Hide instructions
+function exitInstructions() //Go back to main page instructions
 {
-    document.getElementById("instructions").style.display="none";
+    document.getElementById("instructions").href ="project.html";
 }
 
 // Navigating Between html files:
@@ -14,14 +14,14 @@ function easy()
     document.getElementById("easyLvl").href = "easy.html";
 }
 
-function easy()
+function medium()
 {
-    document.getElementById("easyLvl").href = "easy.html";
+    document.getElementById("mediumLvl").href = "medium.html";
 }
 
-function easy()
+function hard()
 {
-    document.getElementById("easyLvl").href = "easy.html";
+    document.getElementById("hardLvl").href = "hard.html";
 }
 
 function enterName()
