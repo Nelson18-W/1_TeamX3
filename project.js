@@ -24,10 +24,16 @@ function hard()
     document.getElementById("hardLvl").href = "hard.html";
 }
 
-function exit()
+function exit() //If player decides to exit in the middle of the game
 {
+    score = 0; //This could also mean the user gave up, making their score automatically 0.
     //Changes the html page to the "Game ended" page.
-    document.getElementById("ending").href = "endPage.html";
+    document.getElementById("end").href = "endPage.html";
+}
+
+function exitAfter() //If the user exits after they finish the game with a score
+{
+    document.getElementById("end").href = "endPage.html";
 }
 
 function showInfo() //Show information about the score, the user, etc
