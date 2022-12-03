@@ -62,6 +62,8 @@ var nameOfPerson = ""; //Making this a global variable so other functions can ke
 function enterName()
 {
     nameOfPerson = prompt("What is your name?", "");
+
+    document.getElementById("username").innerHTML = "Hi " + nameOfPerson + "!"; //For the main page
 }
 function selectBackground() //For user to type the background color they want
 {
