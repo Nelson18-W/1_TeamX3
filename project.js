@@ -24,14 +24,14 @@ function hard()
     document.getElementById("hardLvl").href = "hard.html";
 }
 
-function exit() //If player decides to exit in the middle of the game
-{
-    score = 0; //This could also mean the user gave up, making their score automatically 0.
-    //Changes the html page to the "Game ended" page.
-    document.getElementById("end").href = "endPage.html";
-}
+// function exit() //If player decides to exit in the middle of the game
+// {
+//     score = 0; //This could also mean the user gave up, making their score automatically 0.
+//     //Changes the html page to the "Game ended" page.
+//     document.getElementById("end").href = "endPage.html";
+// }
 
-function exitAfter() //If the user exits after they finish the game with a score
+function exit() //If the user exits after they finish the game with a score
 {
     document.getElementById("end").href = "endPage.html";
 }
@@ -119,7 +119,7 @@ var score = 0; //Score is 0 when the game starts.
 function guess(num) //The parameter of the level will be from the html. Name will be from the function enterName()
 {
     var correctNum = randNum(num); //The number that the user has to try to guess
-    var guessAttempts = 0;
+    var guessAttempts = 1;
     var guessedRight = false;
     var scoreDeduction = 0;
     score = num;
@@ -141,30 +141,40 @@ function guess(num) //The parameter of the level will be from the html. Name wil
     
     while (score > 0 && guessedRight == false)
     {
-        var guess = parseInt(prompt("User:" + nameOfPerson + "    " + "GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
+        var guessNum = parseInt(prompt("User:" + correctNum + nameOfPerson + "    " + "GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
         guessAttempts = guessAttempts + 1;
-        if(guess == correctNum)
+        if(guessNum == correctNum)
         {
             guessedRight = true;
-
-            if(num == 10)
-            {
-                document.getElementById("switchHTML").href = "guess.html";
-            }
-            else if(num == 25)
-            {
-                document.getElementById("switchHTML").href = "guess2.html";
-            }
-            else
-            {
-                document.getElementById("switchHTML").href = "guess3.html";
-            }
         }
         else
         {
             score = score - scoreDeduction;
+           
         }
     }
+
+    if(guessedRight)
+    {
+        document.getElementById("displayGuess").innerHTML="Guess is Correct!";
+    }
+    else
+    {
+        document.getElementById("displayGuess").innerHTML="Your guesses were wrong!";
+    }
+
+    // if(num == 10)
+    // {
+    //     document.getElementById("switchHTML").href = "guess.html";
+    // }
+    // else if(num == 25)
+    // {
+    //     document.getElementById("switchHTML").href = "guess2.html";
+    // }
+    // else
+    // {
+    //     document.getElementById("switchHTML").href = "guess3.html";
+    // }
 }
 
 function randNum(upTo) //Returns a random number from [1, upto]
