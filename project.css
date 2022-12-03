@@ -1,5 +1,5 @@
 body{background-color: rgb(236,238,241);}
-#box
+.box
 {
   width:40vw;
   height:40vh;
@@ -23,6 +23,7 @@ button
   padding-bottom:5px;
   padding-left:65px;
   padding-right:65px;
+  margin-left:5px;
 }
 button:hover{background-color: lightblue;}
 input:focus

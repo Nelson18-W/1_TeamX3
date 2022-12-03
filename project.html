@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="En">
+<head>
+  <meta charset="UTF-8">
+  <title> EECS1012: Lab 4 - Computational Thinking </title>
+  <link rel="stylesheet" type="text/css" href="project.css" title="style" /> 
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <script src="project.js"></script>
+ 
+  
+</head>
+<body>
+  <div class = "box">
+  <header>
+    
+    <h1> Guess the Number! </h1>
+  </header>
+  <p>Welcome, this game will generate a random number between parameters, which you will have to guess.  
+    Please choose the difficulty level (easy: 1-10, medium: 1-25, hard: 1-50), and enter your name.  
+    At the end of your guess, you may retry, update the score, or exit.  
+    <div class="input">
+       name <input class = "center-block" id="name" type="text"/>
+    </div>
+  </p>
+  
+	
+  <div> 
+	  
+	<button id="butn1" onclick="easy()"> <a href="easy.html">
+      easy
+ </a></button>   
+	  <button id="butn2" onclick="medium()">  <a href="medium.html">
+    medium
+ </a> </button>  
+	  <button id="butn3" onclick="hard()"> <a href="hard.html">
+      hard
+ </a> </button>  
+	  <p id="output">	</p>
+  </div>
+  
+
+ 
+  
+  <footer>&copy; Author(s): <span>Team X</span> </footer>
+
+</div>
+</body>
+</html>
