@@ -52,9 +52,10 @@ function retry(level) //Level is passed from the html page
 }
 //End of navigation codes
 
+var nameOfPerson = ""; //Making this a global variable so other functions can keep track of the name.
 function enterName()
 {
-    //Maybe something like an array for names to be kept track of in the scoreboard.
+    nameOfPerson = prompt("What is your name?", "");
 }
 function selectBackground() //For user to type the background color they want
 {
@@ -126,15 +127,26 @@ function guess(num) //The parameter of the level will be from the html. Name wil
     }
 
     
-    while (guessAttempts < num && guessedRight == false)
+    while (score > 0 && guessedRight == false)
     {
-        var guess = parseInt(prompt("Guess Attempts" + ":" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
+        var guess = parseInt(prompt("User:" + nameOfPerson + "    " + "GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
         guessAttempts = guessAttempts + 1;
         if(guess == correctNum)
         {
             guessedRight = true;
 
-            document.getElementById("switchHTML").href = "guess.html";
+            if(num == 10)
+            {
+                document.getElementById("switchHTML").href = "guess.html";
+            }
+            else if(num == 25)
+            {
+                document.getElementById("switchHTML").href = "guess2.html";
+            }
+            else
+            {
+                document.getElementById("switchHTML").href = "guess3.html";
+            }
         }
         else
         {
