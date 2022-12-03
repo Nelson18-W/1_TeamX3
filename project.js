@@ -131,7 +131,7 @@ function guess(num) //The parameter of the level will be from the html. Name wil
     }
     else if(num == 25)
     {
-        scoreDeduction = 3;
+        scoreDeduction = 2.5;
     }
     else
     {
