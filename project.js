@@ -69,42 +69,44 @@ function selectBackground() //For user to type the background color they want
 {
     var col = prompt("What color do you want?", "");
     col = col.toLowerCase();
-    document.getElementById("bodyColor").style.backgroundColor = col;
+    document.getElementById("bodyColorAndText").style.backgroundColor = col;
 }
 
-function adjustFontSize(size) //Changes the font size based on what the user selects from the drop-down menu in html
+function adjustFontSize() //Changes the font size based on what the user selects from the drop-down menu in html
 {
+    var textSize = prompt("What fontsize do you want?" + "\n" + "\n" + "xx-small \n" + "x-small \n" + "small \n" + "medium \n" + "large \n" + "x-large \n" + "xx-large", "");
+    textSize = textSize.toLowerCase();
     //Changes the text size of all the texts
-    if(size == "xx-small")
+    if(textSize == "xx-small")
     {
-        document.getElementById("displayGuess") = "xx-small";
+        document.getElementById("bodyColorAndText").style.fontSize = "xx-small";
     }
-    if(size == "x-small")
+    if(textSize == "x-small")
     {
-        document.getElementById("textChange") = "x-small";
+        document.getElementById("bodyColorAndText").style.fontSize = "x-small";
     }
-    if(size == "small")
+    if(textSize == "small")
     {
-        document.getElementById("textChange") = "small";
+        document.getElementById("bodyColorAndText").style.fontSize = "small";
     }
-    if(size == "medium")
+    if(textSize == "medium")
     {
-        document.getElementById("textChange") = "medium";
+        document.getElementById("bodyColorAndText").style.fontSize = "medium";
     }
     
-    if(size == "large")
+    if(textSize == "large")
     {
-        document.getElementById("textChange") = "large";
+        document.getElementById("bodyColorAndText").style.fontSize = "large";
     }
    
-    if(size == "x-large")
+    if(textSize == "x-large")
     {
-        document.getElementById("textChange") = "x-large";
+        document.getElementById("bodyColorAndText").style.fontSize = "x-large";
     }
     
-    if(size == "xx-large")
+    if(textSize == "xx-large")
     {
-        document.getElementById("textChange") = "xx-large";
+        document.getElementById("bodyColorAndText").style.fontSize = "xx-large";
     }
 }
 
