@@ -14,10 +14,11 @@
     
     <h1> Guess the Number! </h1>
   </header>
-  <p> Welcome, this game will generate a random number which you will have to guess. <br>
-    Please choose the difficulty level, and enter your name<br>
+  <p>Welcome, this game will generate a random number between parameters, which you will have to guess. <br>
+    Please choose the difficulty level (easy:1-10, medium:1-25, hard:1-50), and enter your name.  <br>
+    At the end of your guess, you may retry, update the score, or exit. <br>
     <div class="input">
-      <button onclick="enterName()">  Enter Name </button>   
+      name <input id="name" type="text" min="-32768" max="32767"/>
     </div>
   </p>
   
