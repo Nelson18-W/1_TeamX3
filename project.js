@@ -27,17 +27,15 @@ function hard()
 function exit()
 {
     //Changes the html page to the "Game ended" page.
-
     document.getElementById("ending").href = "endPage.html";
 }
 
 function refresh() //Refeshes everything and goes back to main page
 {
-    score = 0;
     document.getElementById("ending").href = "project.html";
 }
 
-function retry(level)
+function retry(level) //Level is passed from the html page
 {
     if(level == 1)
     {
@@ -105,35 +103,46 @@ function adjustFontSize(size) //Changes the font size based on what the user sel
     }
 }
 
-theScore = getElementById("score").innerHTML = ""; //Keep the score as a global variable. Will move this at the top soon.
-
 function guess(num) //The parameter of the level will be from the html. Name will be from the function enterName()
 {
     var correctNum = randNum(num); //The number that the user has to try to guess
     var guessAttempts = 0;
     var guessedRight = false;
-    while (guessAttempts <= num && guessedRight == false)
+    var scoreDeduction = 0;
+    var score = num;
+
+    //Decides how much score points to deduct based on the difficulty of the level.
+    if(num == 10)
     {
-        var guess = parseInt(prompt("Please guess a number: ", ""));
+        scoreDeduction = 1;
+    }
+    else if(num == 25)
+    {
+        scoreDeduction = 3;
+    }
+    else
+    {
+        scoreDeduction = 5;
+    }
+
+    
+    while (guessAttempts < num && guessedRight == false)
+    {
+        var guess = parseInt(prompt("Guess Attempts" + ":" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
         guessAttempts = guessAttempts + 1;
         if(guess == correctNum)
         {
-            document.getElementById("boxResult").innerHTML = "Your guess is correct!";
-            alert("Your guess is correct!"); //will remove this
-            guessedRight == true;
+            guessedRight = true;
+
+            document.getElementById("switchHTML").href = "guess.html";
         }
         else
         {
-            document.getElementById("boxResult").innerHTML = "Your guess is wrong!"
-            alert("Your guess is wrong!"); //will remove this
+            score = score - scoreDeduction;
         }
     }
-    // if(guessedRight == false)
-    
-    // {
-    //     theScore = theScore + name + ": " + (num - guessAttempts); //May change the scoring system 
-    // }
 }
+
 function randNum(upTo) //Returns a random number from [1, upto]
 {
     return Math.floor(Math.random() * upTo) + 1;
