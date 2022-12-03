@@ -72,13 +72,9 @@ function selectBackground() //For user to type the background color they want
 {
     var col = prompt("What color do you want?", "");
     col = col.toLowerCase();
-    changeBackground(col);
+    document.getElementById("bodyColor").style.backgroundColor = col;
 }
-function changeBackground(col) //Changes the background color *Maybe incorrect
-{
-    document.getElementById("background").style.backgroundColor = col;
-    //*If this doesn't work then we can list a few options for what background color the user can change to, and the function uses an if-statement to change accordingly
-}
+
 function adjustFontSize(size) //Changes the font size based on what the user selects from the drop-down menu in html
 {
     //Changes the text size of all the texts
