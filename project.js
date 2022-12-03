@@ -1,12 +1,7 @@
 // Navigating Between html files:
 function instructions() //The instructions will show
 {
-    document.getElementById("instructions").href = "instructions.html";
-}
-
-function exitInstructions() //Go back to main page instructions
-{
-    document.getElementById("instructions").href ="project.html";
+    document.getElementById("instructions").innerHTML = "Welcome, this game will generate a random number between parameters, which you will have to guess. <br> Please choose the difficulty level (easy:1-10, medium:1-25, hard:1-50), and enter your name.  <br> At the end of your guess, you may retry, update the score, or exit.";
 }
 
 function easy()
@@ -80,7 +75,7 @@ function adjustFontSize(size) //Changes the font size based on what the user sel
     //Changes the text size of all the texts
     if(size == "xx-small")
     {
-        document.getElementById("textChange") = "xx-small";
+        document.getElementById("displayGuess") = "xx-small";
     }
     if(size == "x-small")
     {
