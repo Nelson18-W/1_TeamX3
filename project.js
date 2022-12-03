@@ -30,6 +30,11 @@ function exit()
     document.getElementById("ending").href = "endPage.html";
 }
 
+function showInfo() //Show information about the score, the user, etc
+{
+    document.getElementById("theScore").innerHTML="Game has ended!  Score:" + score;
+}
+
 function refresh() //Refeshes everything and goes back to main page
 {
     document.getElementById("ending").href = "project.html";
@@ -104,13 +109,14 @@ function adjustFontSize(size) //Changes the font size based on what the user sel
     }
 }
 
+var score = 0; //Score is 0 when the game starts.
 function guess(num) //The parameter of the level will be from the html. Name will be from the function enterName()
 {
     var correctNum = randNum(num); //The number that the user has to try to guess
     var guessAttempts = 0;
     var guessedRight = false;
     var scoreDeduction = 0;
-    var score = num;
+    score = num;
 
     //Decides how much score points to deduct based on the difficulty of the level.
     if(num == 10)
