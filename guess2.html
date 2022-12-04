@@ -7,48 +7,48 @@
   <link rel="stylesheet" type="text/css" href="project.css" title="style" /> 
   <script src="project.js"></script>
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+ 
   
 </head>
-<body>
-  <div class = "box">
+<body id = "bodyColorAndText">
+  <div class = "box"> 
   <header>
     
     <h1> Guess the Number! </h1>
   </header>
-  <p> Score was worng /right, update score<br>
+  <p> Score was wrong /right, update score<br>
    
   </p>
+ 
   
 	<div class="input">
 	  
-	  <button id="butn5" onclick="updateScore()"> <a href="medium.html">
+	  <button id="butn5" onclick="updateScore()"> <a href="">
       okay
  </a>  </button>   
 	 
 	
 	  
-  </div>	
-  <br>
-  <div class="input">
+  
 	  
-    <button id="butn6" onclick="retry()"> <a href="medium.html">
+    <button id="butn6" onclick="retry(2)"> <a id = "mediumRetry" href="">
     retry
 </a>  </button>   
 
     
-</div>	
-<br>
-<div>
-<div class="input">
+ 	
+ 
 	  
-    <button id="butn7" onclick="endProgram()"> <a href="endPage.html">
+    <button id="butn7" onclick="exitAfter()"> <a id="end" href="">
     exit
 </a>  </button>   
    
     
     
-</div>	
-
+ 
+<button onclick = "selectBackground()">Change Background Color</button>
+<button onclick = "adjustFontSize()">Change Font Size</button>
+</div> 
   <br>
   <footer>&copy; Author(s): <span>Team X</span> </footer>
 </div>

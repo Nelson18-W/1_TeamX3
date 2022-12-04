@@ -1,116 +1,271 @@
+const { getSystemErrorMap } = require("util");
+
+// Navigating Between html files:
 function instructions() //The instructions will show
 {
-    document.getElementById("instructions").src="images/instructions.jpg";
+    document.getElementById("instructions").innerHTML = "Welcome, this game will generate a random number between parameters, which you will have to guess. <br> Please choose the difficulty level (easy:1-10, medium:1-25, hard:1-50), and enter your name.  <br> At the end of your guess, you may retry, update the score, or exit.";
 }
 
-function exitInstructions() //Hide instructions
+function easy()
 {
-    document.getElementById("instructions").style.display="none";
+    document.getElementById("easyLvl").href = "easy.html";
 }
 
+function medium()
+{
+    document.getElementById("mediumLvl").href = "medium.html";
+}
+
+function hard()
+{
+    document.getElementById("hardLvl").href = "hard.html";
+}
+
+function exit() //If the user exits after they finish the game
+{
+    document.getElementById("end").href = "endPage.html";
+}
+
+function showInfo() //Show information about the score, the user, etc
+{
+    document.getElementById("theScore").innerHTML="Game has ended!  Score:" + score;
+}
+
+function refresh() //Refeshes everything and goes back to main page
+{
+    nameOfPerson = ""; //Setting name back to none.
+    score = 0; //Setting score back to 0.
+    document.getElementById("refreshButton").href = "project.html";
+}
+
+function retry(level) //Level is passed from the html page
+{
+    if(level == 1)
+    {
+        document.getElementById("easyRetry").href = "easy.html";
+    }
+    else if(level == 2)
+    {
+        document.getElementById("mediumRetry").href = "medium.html";
+    }
+    else if(level == 3)
+    {
+        document.getElementById("hardRetry").href = "hard.html";
+    }
+}
+//End of navigation codes
+
+var nameOfPerson = ""; //Making this a global variable so other functions can keep track of the name.
 function enterName()
 {
-    //Maybe something like an array for names to be kept track of in the scoreboard.
+    nameOfPerson = prompt("What is your name?", "");
+
+    document.getElementById("username").innerHTML = "Hi " + nameOfPerson + "!"; //For the main page
+
+    nameKeep(nameOfPerson);
 }
+
+// function nameKeep(userNames) //For html to remember the name when switching between files
+// {
+//     return userNames;
+// }
 
 function selectBackground() //For user to type the background color they want
 {
     var col = prompt("What color do you want?", "");
     col = col.toLowerCase();
-    changeBackground(col);
+    document.getElementById("bodyColorAndText").style.backgroundColor = col;
 }
 
-function changeBackground(col) //Changes the background color *Maybe incorrect
+function adjustFontSize() //Changes the font size based on what the user selects from the drop-down menu in html
 {
-    document.getElementById("background").style.backgroundColor = col;
-
-    //*If this doesn't work then we can list a few options for what background color the user can change to, and the function uses an if-statement to change accordingly
-}
-
-function adjustFontSize(size) //Changes the font size based on what the user selects from the drop-down menu in html
-{
+    var textSize = prompt("What fontsize do you want?" + "\n" + "\n" + "xx-small \n" + "x-small \n" + "small \n" + "medium \n" + "large \n" + "x-large \n" + "xx-large", "");
+    textSize = textSize.toLowerCase();
     //Changes the text size of all the texts
-    if(size == "xx-small")
+    if(textSize == "xx-small")
     {
-        document.getElementById("textChange") = "xx-small";
+        document.getElementById("bodyColorAndText").style.fontSize = "xx-small";
     }
-
-    if(size == "x-small")
+    if(textSize == "x-small")
     {
-        document.getElementById("textChange") = "x-small";
+        document.getElementById("bodyColorAndText").style.fontSize = "x-small";
     }
-
-    if(size == "small")
+    if(textSize == "small")
     {
-        document.getElementById("textChange") = "small";
+        document.getElementById("bodyColorAndText").style.fontSize = "small";
     }
-
-    if(size == "medium")
+    if(textSize == "medium")
     {
-        document.getElementById("textChange") = "medium";
+        document.getElementById("bodyColorAndText").style.fontSize = "medium";
     }
     
-    if(size == "large")
+    if(textSize == "large")
     {
-        document.getElementById("textChange") = "large";
+        document.getElementById("bodyColorAndText").style.fontSize = "large";
     }
    
-    if(size == "x-large")
+    if(textSize == "x-large")
     {
-        document.getElementById("textChange") = "x-large";
+        document.getElementById("bodyColorAndText").style.fontSize = "x-large";
     }
     
-    if(size == "xx-large")
+    if(textSize == "xx-large")
     {
-        document.getElementById("textChange") = "xx-large";
+        document.getElementById("bodyColorAndText").style.fontSize = "xx-large";
     }
 }
 
-theScore = getElementById("score").innerHTML = ""; //Keep the score as a global variable. Will move this at the top soon.
 
-function levelDifficulty(num, name) //The parameter of the level will be from the html. Name will be from the function enterName()
+function guess(num) //The parameter of the level will be from the html. Name will be from the function enterName()
 {
-
-    /* May also add something that switches to new html pages after the level is selected*/
-    document.getElementById("heading").innerHTML = "The level you choose requires you to guess a number between 0 and " + num;
-
     var correctNum = randNum(num); //The number that the user has to try to guess
-    var guessAttempts = 0;
+    var guessAttempts = 1;
+    var guessedRight = false;
+    var scoreDeduction = 0;
+    var score = num;
 
-    while (guessAttempts <= num && guessedRight == false)
+    // document.getElementById("retryButton").disabled = true; //Disable try again button when the game starts.
+
+    //Decides how much score points to deduct based on the difficulty of the level.
+    if(num == 10)
     {
-        var guess = parseInt(prompt("Please guess a number: ", ""));
+        scoreDeduction = 1;
+    }
+    else if(num == 25)
+    {
+        scoreDeduction = 2.5;
+    }
+    else
+    {
+        scoreDeduction = 5;
+    }
 
-        guessAttempts = guessAttempts + 1;
+    
+    while (score > 0 && guessedRight == false)
+    {
+        var guessNum = parseInt(prompt("User:" + correctNum + "    " + "GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
 
-        if(guess == correctNum)
+        if(guessNum == correctNum)
         {
-            alert("guess is correct!");
-
-            guessedRight == true;
+            guessedRight = true;
+        }
+        else
+        {
+            guessAttempts = guessAttempts + 1;
+            score = score - scoreDeduction;
+           
         }
     }
 
-    if(guessedRight == false)
-    
+    // document.getElementById("retryButton").disabled = false; //Re-enable the try again button after game finishes.
+
+    if(guessedRight)
     {
-        theScore = theScore + name + ": " + (num - guessAttempts); //May change the scoring system 
+        document.getElementById("displayGuess").innerHTML="<br>Guess is Correct!<br>"  + "<br>It took you " + guessAttempts + " guess(es)!<br>" + "<br>Your score is:" + score + "<br>" + "<br>Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page <br>";
     }
+    else
+    {
+        document.getElementById("displayGuess").innerHTML="<br>Your guesses were wrong!<br>" + "<br>Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page<br>";
+    }
+
+    // if(tryAgain())
+    // {
+    //     if(num == 10)
+    //     {
+    //         document.getElementById("switchHTML").href = "easy.html";
+    //     }
+    //     else if(num == 25)
+    //     {
+    //         document.getElementById("switchHTML").href = "medium.html";
+    //     }
+    //     else
+    //     {
+    //         document.getElementById("switchHTML").href = "hard.html";
+    //     }
+    // }
+
 }
 
-function randNum(num)
+function randNum(upTo) //Returns a random number from [1, upto]
 {
-    return Math.floor(Math.random() * num) + 1;
+    return Math.floor(Math.random() * upTo) + 1;
 }
 
-function exit()
+// function tryAgain() //If user clicks the button with this onclick function.
+// {
+//     return true;
+// }
+
+//version of guess for running mocha and chai tests
+function guessTester(num, correctNum, guessNum)
 {
-    //Changes the html page to the "Game ended" page.
+    
+        var guessAttempts = 1;
+        var guessedRight = false;
+        var scoreDeduction = 0;
+        var score = num;
+    
+        // document.getElementById("retryButton").disabled = true; //Disable try again button when the game starts.
+    
+        //Decides how much score points to deduct based on the difficulty of the level.
+        if(num == 10)
+        {
+            scoreDeduction = 1;
+        }
+        else if(num == 25)
+        {
+            scoreDeduction = 2.5;
+        }
+        else
+        {
+            scoreDeduction = 5;
+        }
+    
+        
+        while (score > 0 && guessedRight == false)
+        {
+    
+            if(guessNum[guessAttempts - 1] == correctNum)
+            {
+            
+                guessedRight = true;
+            }
+            else
+            {
+                guessAttempts = guessAttempts + 1;
+                score = score - scoreDeduction;
+               
+            }
+        }
+    
+        // document.getElementById("retryButton").disabled = false; //Re-enable the try again button after game finishes.
+        
+        if(guessedRight == true)
+        {
+           
+            return "<br>Guess is Correct!<br>"  + "<br>It took you " + guessAttempts + " guess(es)!<br>" + "<br>Your score is:" + score + "<br>" + "<br>Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page <br>";
+        }
+         
+            return "<br>Your guesses were wrong!<br>" + "<br>Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page<br>";
+    
 
-    document.getElementById("ending").innerHTML = "game has ended, thanks for playing <br>" + theScore; //Assuming texts are alligned in the middle
-}
+        
+    
+        // if(tryAgain())
+        // {
+        //     if(num == 10)
+        //     {
+        //         document.getElementById("switchHTML").href = "easy.html";
+        //     }
+        //     else if(num == 25)
+        //     {
+        //         document.getElementById("switchHTML").href = "medium.html";
+        //     }
+        //     else
+        //     {
+        //         document.getElementById("switchHTML").href = "hard.html";
+        //     }
+        // }
+    
+    }
 
-function refresh()
-{
-    //changes the html page back to the beginning page for the user to enter a new name and play the game again
-}

@@ -9,28 +9,36 @@
   <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   
 </head>
-<body>
-  <div class = "box">
+<body id = "bodyColorAndText">
+
+  <div class = "box"> 
+  
   <header>
     
     <h1> Guess the Number! </h1>
   </header>
-  <p> Please Guess a number between 1-50<br>
-    <div class="input">
-     <input id="guess" type="text" min="-32768" max="32767"/>
-    </div>
-  </p>
-  
+  <div id="displayGuess"> 
+    Please Guess a number between 1-50<br>
+  </div> 
+  <br>
 	<div class="input">
-	  
-	  <button id="butn4" onclick="guess()"> <a href="guess3.html">
-      Enter
- </a>  </button>   
-	 
-	  <p id="output">	</p>
-	  
-  </div>	
+
+	  <button id="butn4" onclick="guess(50)" class = "enterButton">Enter Guess</button>   
+
+  </div>
+  <br>
   
+  <div class="input">
+      <button id="butn7" onclick="exit()"> <a id="end" href="">
+      exit
+  </a></button>
+ 
+  <button onclick = "selectBackground()">Change Background Color</button>
+  <button onclick = "adjustFontSize()">Change Font Size</button>
+  <button onclick = "refresh()"><a id = "refreshButton" href="">Refresh</a></button>
+ 
+ </div>
+  <br>
   <footer>&copy; Author(s): <span>Team X</span> </footer>
 </div>
 </body>
