@@ -113,16 +113,16 @@ function adjustFontSize() //Changes the font size based on what the user selects
     }
 }
 
-var score = 0; //Score is 0 when the game starts.
+
 function guess(num) //The parameter of the level will be from the html. Name will be from the function enterName()
 {
     var correctNum = randNum(num); //The number that the user has to try to guess
     var guessAttempts = 1;
     var guessedRight = false;
     var scoreDeduction = 0;
-    score = num;
+    var score = num;
 
-    document.getElementById("retryButton").disabled = true; //Disable try again button when the game starts.
+    // document.getElementById("retryButton").disabled = true; //Disable try again button when the game starts.
 
     //Decides how much score points to deduct based on the difficulty of the level.
     if(num == 10)
@@ -142,44 +142,45 @@ function guess(num) //The parameter of the level will be from the html. Name wil
     while (score > 0 && guessedRight == false)
     {
         var guessNum = parseInt(prompt("User:" + correctNum + "    " + "GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
-        guessAttempts = guessAttempts + 1;
+
         if(guessNum == correctNum)
         {
             guessedRight = true;
         }
         else
         {
+            guessAttempts = guessAttempts + 1;
             score = score - scoreDeduction;
            
         }
     }
 
-    document.getElementById("retryButton").disabled = false; //Re-enable the try again button after game finishes.
+    // document.getElementById("retryButton").disabled = false; //Re-enable the try again button after game finishes.
 
     if(guessedRight)
     {
-        document.getElementById("displayGuess").innerHTML="Guess is Correct!";
+        document.getElementById("displayGuess").innerHTML="Guess is Correct!<br>"  + "It took you " + guessAttempts + " guess(es)!<br>" + "Your score is:" + score + "<br>" + "Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page";
     }
     else
     {
-        document.getElementById("displayGuess").innerHTML="Your guesses were wrong!";
+        document.getElementById("displayGuess").innerHTML="Your guesses were wrong!" + "<br>" + "Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page";
     }
 
-    if(tryAgain())
-    {
-        if(num == 10)
-        {
-            document.getElementById("switchHTML").href = "easy.html";
-        }
-        else if(num == 25)
-        {
-            document.getElementById("switchHTML").href = "medium.html";
-        }
-        else
-        {
-            document.getElementById("switchHTML").href = "hard.html";
-        }
-    }
+    // if(tryAgain())
+    // {
+    //     if(num == 10)
+    //     {
+    //         document.getElementById("switchHTML").href = "easy.html";
+    //     }
+    //     else if(num == 25)
+    //     {
+    //         document.getElementById("switchHTML").href = "medium.html";
+    //     }
+    //     else
+    //     {
+    //         document.getElementById("switchHTML").href = "hard.html";
+    //     }
+    // }
 
 }
 
@@ -188,7 +189,7 @@ function randNum(upTo) //Returns a random number from [1, upto]
     return Math.floor(Math.random() * upTo) + 1;
 }
 
-function tryAgain() //If user clicks the button with this onclick function.
-{
-    return true;
-}
+// function tryAgain() //If user clicks the button with this onclick function.
+// {
+//     return true;
+// }
