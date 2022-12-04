@@ -159,11 +159,11 @@ function guess(num) //The parameter of the level will be from the html. Name wil
 
     if(guessedRight)
     {
-        document.getElementById("displayGuess").innerHTML="Guess is Correct!<br>"  + "It took you " + guessAttempts + " guess(es)!<br>" + "Your score is:" + score + "<br>" + "Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page";
+        document.getElementById("displayGuess").innerHTML="<br>Guess is Correct!<br>"  + "<br>It took you " + guessAttempts + " guess(es)!<br>" + "<br>Your score is:" + score + "<br>" + "<br>Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page <br>";
     }
     else
     {
-        document.getElementById("displayGuess").innerHTML="Your guesses were wrong!" + "<br>" + "Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page";
+        document.getElementById("displayGuess").innerHTML="<br>Your guesses were wrong!<br>" + "<br>Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page<br>";
     }
 
     // if(tryAgain())
