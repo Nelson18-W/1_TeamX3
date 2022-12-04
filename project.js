@@ -38,7 +38,9 @@ function showInfo() //Show information about the score, the user, etc
 
 function refresh() //Refeshes everything and goes back to main page
 {
-    document.getElementById("ending").href = "project.html";
+    nameOfPerson = ""; //Setting name back to none.
+    score = 0; //Setting score back to 0.
+    document.getElementById("refreshButton").href = "project.html";
 }
 
 function retry(level) //Level is passed from the html page
