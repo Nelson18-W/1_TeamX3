@@ -19,14 +19,7 @@ function hard()
     document.getElementById("hardLvl").href = "hard.html";
 }
 
-// function exit() //If player decides to exit in the middle of the game
-// {
-//     score = 0; //This could also mean the user gave up, making their score automatically 0.
-//     //Changes the html page to the "Game ended" page.
-//     document.getElementById("end").href = "endPage.html";
-// }
-
-function exit() //If the user exits after they finish the game with a score
+function exit() //If the user exits after they finish the game
 {
     document.getElementById("end").href = "endPage.html";
 }
@@ -66,7 +59,15 @@ function enterName()
     nameOfPerson = prompt("What is your name?", "");
 
     document.getElementById("username").innerHTML = "Hi " + nameOfPerson + "!"; //For the main page
+
+    nameKeep(nameOfPerson);
 }
+
+// function nameKeep(userNames) //For html to remember the name when switching between files
+// {
+//     return userNames;
+// }
+
 function selectBackground() //For user to type the background color they want
 {
     var col = prompt("What color do you want?", "");
@@ -121,6 +122,8 @@ function guess(num) //The parameter of the level will be from the html. Name wil
     var scoreDeduction = 0;
     score = num;
 
+    document.getElementById("retryButton").disabled = true; //Disable try again button when the game starts.
+
     //Decides how much score points to deduct based on the difficulty of the level.
     if(num == 10)
     {
@@ -138,7 +141,7 @@ function guess(num) //The parameter of the level will be from the html. Name wil
     
     while (score > 0 && guessedRight == false)
     {
-        var guessNum = parseInt(prompt("User:" + correctNum + nameOfPerson + "    " + "GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
+        var guessNum = parseInt(prompt("User:" + correctNum + "    " + "GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
         guessAttempts = guessAttempts + 1;
         if(guessNum == correctNum)
         {
@@ -151,6 +154,8 @@ function guess(num) //The parameter of the level will be from the html. Name wil
         }
     }
 
+    document.getElementById("retryButton").disabled = false; //Re-enable the try again button after game finishes.
+
     if(guessedRight)
     {
         document.getElementById("displayGuess").innerHTML="Guess is Correct!";
@@ -160,21 +165,30 @@ function guess(num) //The parameter of the level will be from the html. Name wil
         document.getElementById("displayGuess").innerHTML="Your guesses were wrong!";
     }
 
-    // if(num == 10)
-    // {
-    //     document.getElementById("switchHTML").href = "guess.html";
-    // }
-    // else if(num == 25)
-    // {
-    //     document.getElementById("switchHTML").href = "guess2.html";
-    // }
-    // else
-    // {
-    //     document.getElementById("switchHTML").href = "guess3.html";
-    // }
+    if(tryAgain())
+    {
+        if(num == 10)
+        {
+            document.getElementById("switchHTML").href = "easy.html";
+        }
+        else if(num == 25)
+        {
+            document.getElementById("switchHTML").href = "medium.html";
+        }
+        else
+        {
+            document.getElementById("switchHTML").href = "hard.html";
+        }
+    }
+
 }
 
 function randNum(upTo) //Returns a random number from [1, upto]
 {
     return Math.floor(Math.random() * upTo) + 1;
+}
+
+function tryAgain() //If user clicks the button with this onclick function.
+{
+    return true;
 }
