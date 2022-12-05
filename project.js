@@ -63,11 +63,6 @@ function enterName()
     nameKeep(nameOfPerson);
 }
 
-// function nameKeep(userNames) //For html to remember the name when switching between files
-// {
-//     return userNames;
-// }
-
 function selectBackground() //For user to type the background color they want
 {
     var col = prompt("What color do you want?", "");
@@ -113,7 +108,6 @@ function adjustFontSize() //Changes the font size based on what the user selects
     }
 }
 
-
 function guess(num) //The parameter of the level will be from the html. Name will be from the function enterName()
 {
     var correctNum = randNum(num); //The number that the user has to try to guess
@@ -121,8 +115,6 @@ function guess(num) //The parameter of the level will be from the html. Name wil
     var guessedRight = false;
     var scoreDeduction = 0;
     var score = num;
-
-    // document.getElementById("retryButton").disabled = true; //Disable try again button when the game starts.
 
     //Decides how much score points to deduct based on the difficulty of the level.
     if(num == 10)
@@ -138,7 +130,6 @@ function guess(num) //The parameter of the level will be from the html. Name wil
         scoreDeduction = 5;
     }
 
-    
     while (score > 0 && guessedRight == false)
     {
         var guessNum = parseInt(prompt("User:" + correctNum + "    " + "GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
@@ -155,8 +146,6 @@ function guess(num) //The parameter of the level will be from the html. Name wil
         }
     }
 
-    // document.getElementById("retryButton").disabled = false; //Re-enable the try again button after game finishes.
-
     if(guessedRight)
     {
         document.getElementById("displayGuess").innerHTML="<br>Guess is Correct!<br>"  + "<br>It took you " + guessAttempts + " guess(es)!<br>" + "<br>Your score is:" + score + "<br>" + "<br>Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page <br>";
@@ -166,30 +155,9 @@ function guess(num) //The parameter of the level will be from the html. Name wil
         document.getElementById("displayGuess").innerHTML="<br>Your guesses were wrong!<br>" + "<br>Click \"Enter Guess\" to retry this level or click \"Refresh\" to choose a new level in the main page<br>";
     }
 
-    // if(tryAgain())
-    // {
-    //     if(num == 10)
-    //     {
-    //         document.getElementById("switchHTML").href = "easy.html";
-    //     }
-    //     else if(num == 25)
-    //     {
-    //         document.getElementById("switchHTML").href = "medium.html";
-    //     }
-    //     else
-    //     {
-    //         document.getElementById("switchHTML").href = "hard.html";
-    //     }
-    // }
-
 }
 
 function randNum(upTo) //Returns a random number from [1, upto]
 {
     return Math.floor(Math.random() * upTo) + 1;
 }
-
-// function tryAgain() //If user clicks the button with this onclick function.
-// {
-//     return true;
-// }
