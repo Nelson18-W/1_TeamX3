@@ -10,6 +10,7 @@
   
 </head>
 <body id = "bodyColorAndText">
+  <div class = "box">
   <header>
     
     <h1> Guess the Number! </h1>
@@ -17,39 +18,46 @@
   </header>
 
   <p id="instructions"> <br>
-    <button onclick = "instructions()">Instructions</button>
+
   </p>
 
   
   <div id="username">
     Name:  
   </div>
-  <button onclick = "enterName()">Enter Name</button>
+
+  <br>
   
 	<div class="input">
+
+    <button onclick = "enterName()">Enter Name</button>
+    <button onclick = "instructions()">Instructions</button>
 	  
 	  <button id="butn1" onclick="easy(nameOfPerson)"> <a id="easyLvl" href="">
       easy
  </a>  </button>   
-	</div>
-  <div class="input">
+
 	  
 	  <button id="butn2" onclick="medium()">  <a id="mediumLvl" href="">
     medium
  </a> </button>  
-	</div>
-  <div class="input">
+
+ 
 	  
 	  <button id="butn3" onclick="hard()"> <a id="hardLvl" href="">
       hard
  </a>  </button>  
-	  <p id="output">	</p>
-	  
-  </div>		
+	  <p id="output">	</p>	
 
   <button onclick = "selectBackground()">Change Background Color</button>
   <button onclick = "adjustFontSize()">Change Font Size</button>
+
+  </div>
+
+  <br>
   
   <footer>&copy; Author(s): <span>Team X</span> </footer>
+
+</div>
 </body>
 </html>

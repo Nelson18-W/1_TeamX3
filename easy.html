@@ -11,7 +11,9 @@
 </head>
 <body id = "bodyColorAndText">
 
-  <button onclick = "refresh()"><a id = "refreshButton" href="">Refresh</a></button>
+  <div class = "box">
+
+ 
   <header>
     
     <h1> Guess the Number! </h1>
@@ -20,11 +22,16 @@
     Please Guess a number between 1-10
   </div> 
   
+  <br>
+
 	<div class="input">
 
-	  <button id="butn4" onclick="guess(10)"> Enter Guess </button>   
+	  <button id="butn4" class = "enterButton" role = "button" onclick="guess(10)"> Enter Guess </button>   
 
   </div>	
+  
+  <br>
+  
 <div class="input">
 	  
     <button id="butn7" onclick="exit()"> <a id="end" href="">
@@ -33,9 +40,13 @@
 
 <button onclick = "selectBackground()">Change Background Color</button>
 <button onclick = "adjustFontSize()">Change Font Size</button>
+<button onclick = "refresh()"><a id = "refreshButton" href="">Refresh</a></button>
 
-<!-- <button id="retryButton" onclick = "tryAgain()">Try Again?</button> -->
-  
+</div>
+<br>
   <footer>&copy; Author(s): <span>Team X</span> </footer>
+<br>
+</div>
+
 </body>
 </html>
