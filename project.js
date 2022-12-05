@@ -100,15 +100,15 @@ function adjustFontSize() //Changes the font size based on what the user selects
     if(textSize == "x-large")
     {
         document.getElementById("bodyColorAndText").style.fontSize = "x-large";
-        document.getElementById("boxDisplay").style.width = "75vw";
-        document.getElementById("boxDisplay").style.height = "55vh";
+        document.getElementById("boxDisplay").style.width = "85vw";
+        document.getElementById("boxDisplay").style.height = "65vh";
     }
     
     if(textSize == "xx-large")
     {
         document.getElementById("bodyColorAndText").style.fontSize = "xx-large";
-        document.getElementById("boxDisplay").style.width = "85vw";
-        document.getElementById("boxDisplay").style.height = "65vh";
+        document.getElementById("boxDisplay").style.width = "105vw";
+        document.getElementById("boxDisplay").style.height = "85vh";
     }
 }
 
