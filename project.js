@@ -68,33 +68,47 @@ function adjustFontSize() //Changes the font size based on what the user selects
     if(textSize == "xx-small")
     {
         document.getElementById("bodyColorAndText").style.fontSize = "xx-small";
+        document.getElementById("boxDisplay").style.width = "45vw";
+        document.getElementById("boxDisplay").style.height = "25vh";
     }
     if(textSize == "x-small")
     {
         document.getElementById("bodyColorAndText").style.fontSize = "x-small";
+        document.getElementById("boxDisplay").style.width = "50vw";
+        document.getElementById("boxDisplay").style.height = "30vh";
     }
     if(textSize == "small")
     {
         document.getElementById("bodyColorAndText").style.fontSize = "small";
+        document.getElementById("boxDisplay").style.width = "55vw";
+        document.getElementById("boxDisplay").style.height = "35vh";
     }
     if(textSize == "medium")
     {
         document.getElementById("bodyColorAndText").style.fontSize = "medium";
+        document.getElementById("boxDisplay").style.width = "60vw";
+        document.getElementById("boxDisplay").style.height = "40vh";
     }
     
     if(textSize == "large")
     {
         document.getElementById("bodyColorAndText").style.fontSize = "large";
+        document.getElementById("boxDisplay").style.width = "65vw";
+        document.getElementById("boxDisplay").style.height = "45vh";
     }
    
     if(textSize == "x-large")
     {
         document.getElementById("bodyColorAndText").style.fontSize = "x-large";
+        document.getElementById("boxDisplay").style.width = "75vw";
+        document.getElementById("boxDisplay").style.height = "55vh";
     }
     
     if(textSize == "xx-large")
     {
         document.getElementById("bodyColorAndText").style.fontSize = "xx-large";
+        document.getElementById("boxDisplay").style.width = "85vw";
+        document.getElementById("boxDisplay").style.height = "65vh";
     }
 }
 
