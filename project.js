@@ -24,15 +24,8 @@ function exit() //If the user exits after they finish the game
     document.getElementById("end").href = "endPage.html";
 }
 
-function showInfo() //Show information about the score, the user, etc
-{
-    document.getElementById("theScore").innerHTML="Game has ended!  Score:" + score;
-}
-
 function refresh() //Refeshes everything and goes back to main page
 {
-    nameOfPerson = ""; //Setting name back to none.
-    score = 0; //Setting score back to 0.
     document.getElementById("refreshButton").href = "project.html";
 }
 
@@ -53,14 +46,11 @@ function retry(level) //Level is passed from the html page
 }
 //End of navigation codes
 
-var nameOfPerson = ""; //Making this a global variable so other functions can keep track of the name.
 function enterName()
 {
-    nameOfPerson = prompt("What is your name?", "");
+    var nameOfPerson = prompt("What is your name?", "");
 
     document.getElementById("username").innerHTML = "Hi " + nameOfPerson + "!"; //For the main page
-
-    nameKeep(nameOfPerson);
 }
 
 function selectBackground() //For user to type the background color they want
@@ -132,7 +122,7 @@ function guess(num) //The parameter of the level will be from the html. Name wil
 
     while (score > 0 && guessedRight == false)
     {
-        var guessNum = parseInt(prompt("User:" + correctNum + "    " + "GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
+        var guessNum = parseInt(prompt("GuessAttempts:" + guessAttempts + "    " + "Score:" + score + "    " + "Please guess a number: ", ""));
 
         if(guessNum == correctNum)
         {
